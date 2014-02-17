@@ -14,4 +14,9 @@
 Route::get('/', function()
 {
 	return View::make('hello');
+	// return "text nesto";
+});
+
+Route::get('/audit', function(){
+	return Audit::pozdrav();
 });
