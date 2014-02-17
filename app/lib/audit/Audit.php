@@ -22,10 +22,24 @@ class Audit{
 		$this->sessionRecord->save();
 	}
 
-	public static function createTransactionRecord(){
+	function createTransactionRecord(){
 
 		
 	}
+
+	function lifeCycleEvent(){
+
+	}
+
+	function updatePropertyValue($old, $new){}
+
+	function deletePropertyValue(){}
+	function createPropertyValue(){}
+
+	function businessEvent(){}
+	function consumptionEvent(){}
+
+	function membershipEvent(){}
 
 
 
