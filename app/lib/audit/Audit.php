@@ -10,7 +10,6 @@ class Audit{
 	public  $membershipEvent;
 	public  $consumptionEvent;
 
-	public $object = null;
 
 	function __construct(){	
 	  $this->sessionRecord = null;
@@ -33,11 +32,9 @@ class Audit{
 	 * @return bool
 	 */
 	public function createSessionRecord($userId, $userType){
-		// nekje da zacuvuva poradi not null constraint vo sqlite
 		$this->sessionRecord = new Session_record();
 		$this->sessionRecord->subject_id = $userId;
 		$this->sessionRecord->subject_type = $userType;
-		// $this->sessionRecord->subject_address =  $adress;
 		$this->sessionRecord->subject_address =  Request::server('REMOTE_ADDR');
 		$this->sessionRecord->started_at = date('Y-m-d H:i:s');
 		$this->sessionRecord->ended_at = date('Y-m-d H:i:s');		
@@ -48,7 +45,7 @@ class Audit{
 	* Close the Session record, write the end time.
 	* @return bool
 	*/
-	public function closeSessionRecord(){
+	public function closeSessionRecord(){		
 		$this->sessionRecord->ended_at = date('Y-m-d H:i:s');
 		$result = $this->sessionRecord->save();
 		$this->sessionRecord = null;
