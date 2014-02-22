@@ -1,7 +1,7 @@
 <?php
 
 class Transaction_record extends Eloquent {
-	protected $table = 'transaction_record';
+	protected $table = 'transaction_records';
 /*
 Fields to populate: 
 	started_at: timestamp

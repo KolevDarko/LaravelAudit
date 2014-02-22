@@ -13,11 +13,11 @@ class AddTimestampsBusinessSession extends Migration {
 	public function up()
 	{
 		Schema::table('business_events', function($table){
-			$table->timestamps();
+			$table->nullableTimestamps();
 		});
 
 		Schema::table('session_records', function($table){
-			$table->timestamps();
+			$table->nullableTimestamps();
 		});
 	}
 
